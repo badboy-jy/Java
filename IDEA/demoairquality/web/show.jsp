@@ -41,9 +41,9 @@
         <td>监测站</td>
     </tr>
     <c:if test="${p1.totalCount!=0}">
-    <c:forEach items="${p1.dataList}" var="airQualityIndex">
+    <c:forEach items="${p1.dataList}" var="airQualityIndex" varStatus="num">
         <tr>
-            <td>${airQualityIndex.id}</td>
+            <td>${(p1.pageIndex-1)*size+num.count}</td>
             <td><a href="/entry?method=findbyid&did=${airQualityIndex.id}" >${airQualityIndex.district.name}</a></td>
             <td>${airQualityIndex.monitorTime==null?"":airQualityIndex.monitorTime}</td>
             <td>${airQualityIndex.pm10==0?"":airQualityIndex.pm10}</td>

@@ -59,6 +59,7 @@ public class EntryServlet extends HttpServlet {
         }
         //存放参数值 给前端使用
         request.setAttribute("districtId", districtId);
+        request.setAttribute("size",DataUtils.PAGESIZE);
 
         String index = request.getParameter("index");//接受页码值
         int pageindex = 1;
