@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>RegisterServer</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>com.jmd.servlet.RegisterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterServlet</servlet-name>
+    <url-pattern>/servlet/RegisterServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.jmd.servlet.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/servlet/LoginServlet</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>StudentServlet</servlet-name>
+    <servlet-class>com.jmd.servlet.StudentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StudentServlet</servlet-name>
+    <url-pattern>/servlet/StudentServlet</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>StudentjoinServlet</servlet-name>
+    <servlet-class>com.jmd.servlet.StudentjoinServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StudentjoinServlet</servlet-name>
+    <url-pattern>/servlet/StudentjoinServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SignServlet</servlet-name>
+    <servlet-class>com.jmd.servlet.SignServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SignServlet</servlet-name>
+    <url-pattern>/servlet/SignServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SignoutServlet</servlet-name>
+    <servlet-class>com.jmd.servlet.SignoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SignoutServlet</servlet-name>
+    <url-pattern>/servlet/SignoutServlet</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SignallServlet</servlet-name>
+    <servlet-class>com.jmd.servlet.SignallServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SignallServlet</servlet-name>
+    <url-pattern>/servlet/SignallServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>JiluServlet</servlet-name>
+    <servlet-class>com.jmd.servlet.JiluServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>JiluServlet</servlet-name>
+    <url-pattern>/servlet/JiluServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>JiluoutServlet</servlet-name>
+    <servlet-class>com.jmd.servlet.JiluoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>JiluoutServlet</servlet-name>
+    <url-pattern>/servlet/JiluoutServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>JoinServlet</servlet-name>
+    <servlet-class>com.jmd.servlet.JoinServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>JoinServlet</servlet-name>
+    <url-pattern>/servlet/JoinServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>HuodongServlet</servlet-name>
+    <servlet-class>com.jmd.servlet.HuodongServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HuodongServlet</servlet-name>
+    <url-pattern>/servlet/HuodongServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ActivityServlet</servlet-name>
+    <servlet-class>com.jmd.servlet.ActivityServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ActivityServlet</servlet-name>
+    <url-pattern>/servlet/ActivityServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ActivityoutServlet</servlet-name>
+    <servlet-class>com.jmd.servlet.ActivityoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ActivityoutServlet</servlet-name>
+    <url-pattern>/servlet/ActivityoutServlet</url-pattern>
+  </servlet-mapping>
+
+</web-app>
