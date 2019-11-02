@@ -15,7 +15,7 @@
             location.href="/entry?method=delete&id=${airQualityIndex.id}"
         }
         function retu() {
-            location.href="/show.jsp";
+            location.href="/entry";
         }
 
        function fal(obj) {
