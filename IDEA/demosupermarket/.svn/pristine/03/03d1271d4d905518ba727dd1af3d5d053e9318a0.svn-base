@@ -1,0 +1,117 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+ <base href="<%=basePath%>">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+	  <script type="text/javascript" src="js/jquery.js"></script>
+	  <script type="text/javascript" src="js/jquery.validate.js"></script>
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+	  <script type="text/javascript">
+
+		  $(function () {
+			  $("#form1").validate({
+			  	rules:{
+					supplierName:{
+						required:true
+					},
+					supplierDesc:{
+						required:true
+					},
+					supplierPerName:{
+						required:true
+					},
+					supplierPhone:{
+						required:true,
+						digits:true
+					},
+					supplierChuanZhen:{
+						required:true
+					},
+					supplierAddress:{
+						required:true
+					}
+
+
+				},
+				messages:{
+					supplierName:{
+						required:"供应商名称不能为空"
+					},
+					supplierDesc:{
+						required:"供应商描述不能为空"
+					},
+					supplierPerName:{
+						required:"供应商联系不能为空"
+					},
+					supplierPhone:{
+						required:"供应商电话不能为空",
+						digits:"供应商电话必须是数字"
+					},
+					supplierChuanZhen:{
+						required:"供应商传真不能为空"
+					},
+					supplierAddress:{
+						required:"供应商地址不能为空"
+					}
+
+				}});
+		  })
+	  </script>
+</head>
+<body>
+<div class="main">
+	<div class="optitle clearfix">
+		<div class="title">供应商管理&gt;&gt;</div>
+	</div>
+	<span  id="span"></span>
+	<form id="form1" name="form1" method="post" action="/supp">
+		<input name="method" value="add" type="hidden">
+		<div class="content">
+		<font color="red"></font>
+<input name="flag" value="doAdd" type="hidden">
+			<table class="box">
+			<tbody>
+				<tr>
+					<td class="field">供应商名称：</td>
+					<td><input id="supplierName" name="supplierName" class="text" type="text"> <font color="red">*</font></td>
+
+				</tr>
+			<tr>
+					<td class="field">供应商描述：</td>
+					<td><textarea id="supplierDesc" name="supplierDesc" cols="45" rows="5"></textarea><font color="red">*</font></td>
+				</tr>
+				<tr>
+					<td class="field">供应商联系：</td>
+
+					<td><input name="supplierPerName" id="supplierPerName" class="text" type="text"><font color="red">*</font></td>
+				</tr>
+				<tr>
+					<td class="field">供应商电话：</td>
+					<td><input name="supplierPhone" id="supplierPhone" class="text" type="text"><font color="red">*</font></td>
+				</tr>
+				<tr>
+					<td class="field">供应商传真：</td>
+
+					<td><input name="supplierChuanZhen" id="supplierChuanZhen" class="text" type="text"><font color="red">*</font></td>
+				</tr>
+				<tr>
+					<td class="field">供应商地址：</td>
+					<td><input name="supplierAddress" id="supplierAddress" class="text" type="text"><font color="red">*</font></td>
+				</tr>
+			</tbody></table>
+		</div>
+
+		<div class="buttons">
+			<input  value="提交" class="input-button" id="sub_btn" type="submit">
+			<input type="button" class="input-button" onclick="history.back()" value="返回">
+		</div>
+	</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+ <base href="<%=basePath%>">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+</head>
+<body class="frame-bd">
+<ul class="left-menu">
+	<li><a href="/BillServlet?method=byPage" target="mainFrame"><img src="images/btn_bill.gif" /></a></li>
+	<li><a href="/supp?method=index" target="mainFrame"><img src="images/btn_suppliers.gif" /></a></li>
+	<li><a href="/user?method=selectalluser" target="mainFrame"><img src="images/btn_users.gif" /></a></li>
+	<li><a href="login.jsp" target="_blank" onClick="javaScript:alert('这里实现退出操作！');location.href='/In?method=exit'"><img src="images/btn_exit.gif" /></a></li>
+</ul>
+
+</body>
+</html>
