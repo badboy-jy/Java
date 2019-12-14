@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--起别名-->
+
+    <!--分页插件-->
+    <plugins>
+        <!-- PageHelper4.1.6 -->
+        <plugin interceptor="com.github.pagehelper.PageHelper">
+            <property name="dialect" value="mysql"/>
+        </plugin>
+    </plugins>
+    <!--数据库环境  移动到 spring.xml  -->
+
+    <!-- 指定mapper文件   移动到 spring.xml -->
+
+
+</configuration>

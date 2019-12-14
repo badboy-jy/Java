@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/mvc
+                           http://www.springframework.org/schema/mvc/spring-mvc.xsd
+                           http://www.springframework.org/schema/aop
+                           http://www.springframework.org/schema/aop/spring-aop.xsd
+                           http://www.springframework.org/schema/tx
+                           http://www.springframework.org/schema/tx/spring-tx.xsd
+
+">
+
+   <!-- 1.指定数据源-->
+   <context:property-placeholder location="classpath:db.properties"></context:property-placeholder>
+    <bean id="db" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${driver}"></property>
+        <property name="url" value="${url}"></property>
+        <property name="username" value="${uname}"></property>
+        <property name="password" value="${password}"></property>
+    </bean>
+
+    <!--2.创建sqlsessionTemplate对象-->
+    <bean id="factory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="db"></property>
+        <property name="mapperLocations" value="classpath:mapper/*.xml"></property>
+        <property name="configLocation" value="classpath:mybatis-config.xml"></property>
+    </bean>
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.badboyjy.dao"></property>
+        <property name="sqlSessionFactoryBeanName" value="factory"></property>
+    </bean>
+    <!--3.扫描注解-->
+    <context:component-scan base-package="com.alibaba"></context:component-scan>
+     <!--4.加载springmvc的注解驱动-->
+    <mvc:annotation-driven></mvc:annotation-driven>
+     <!-- 5.配置静态资源-->
+    <mvc:default-servlet-handler></mvc:default-servlet-handler>
+    <!--6.视图解析器-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/"/>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+    <!--7.事务-->
+    <bean id="mytx" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="db"></property>
+    </bean>
+ <!--   <tx:advice id="advice" transaction-manager="mytx"></tx:advice>-->
+    <tx:annotation-driven  transaction-manager="mytx"></tx:annotation-driven>
+    <context:component-scan base-package="com.alibaba.service"></context:component-scan>
+    <!--8.拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/js/**"/>
+            <mvc:exclude-mapping path="/css/**"/>
+            <mvc:exclude-mapping path="/Images/**"/>
+            <mvc:exclude-mapping path="/img/**"/>
+            <mvc:exclude-mapping path="/Style/**"/>
+            <mvc:exclude-mapping path="/dtree/**"/>
+            <bean class="com.alibaba.util.interceptor.LoginInterceptor"></bean>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.alibaba.util.interceptor.AuthInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+</beans>

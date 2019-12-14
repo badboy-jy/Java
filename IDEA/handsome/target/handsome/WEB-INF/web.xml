@@ -1,0 +1,81 @@
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>Archetype Created Web Application</display-name>
+
+  <welcome-file-list>
+    <welcome-file>login.jsp</welcome-file>
+  </welcome-file-list>
+  <!--使用监听器加载配置文件-->
+  <listener>
+    <listener-class>
+      org.springframework.web.context.ContextLoaderListener
+    </listener-class>
+  </listener>
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:spring-db.xml</param-value>
+  </context-param>
+  <!-- 1.配置核心控制器-->
+  <servlet>
+    <servlet-name>aa</servlet-name>
+    <servlet-class>
+      org.springframework.web.servlet.DispatcherServlet
+    </servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>classpath:spring-mvc.xml</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>aa</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  <!--2.处理post请求乱码-->
+  <filter>
+    <filter-name>bb</filter-name>
+    <filter-class>
+      org.springframework.web.filter.CharacterEncodingFilter
+    </filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>utf-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>bb</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <!--权限判断的过滤器-->
+  <!--  <filter>
+      <filter-name>cc</filter-name>
+      <filter-class>
+        com.badboyjy.util.filter.LoginFilter
+      </filter-class>
+    </filter>
+    <filter-mapping>
+      <filter-name>cc</filter-name>
+      <url-pattern>/*</url-pattern>
+    </filter-mapping>-->
+
+  <!--shiro过滤器，filter-name需要和shiro的配置文件中的ShiroFilterFactoryBean对象名相同-->
+  <!--
+    <filter>
+      <filter-name>cc</filter-name>
+      <filter-class>
+        org.springframework.web.filter.DelegatingFilterProxy
+      </filter-class>
+      &lt;!&ndash;指定shiro对象中的生命周期由spring管理&ndash;&gt;
+      <init-param>
+        <param-name>targetFilterLifecycle</param-name>
+        <param-value>true</param-value>
+      </init-param>
+    </filter>
+    <filter-mapping>
+      <filter-name>cc</filter-name>
+      <url-pattern>/*</url-pattern>
+    </filter-mapping>
+  -->
+
+</web-app>
